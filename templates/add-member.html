@@ -1,0 +1,57 @@
+{% extends "temp.html" %}
+
+{% block title %}Add Member{% endblock %}
+
+{% block body %}
+
+
+<main>
+    <div class="black-container">
+        <div class="white-container">
+            <div class="totalInputContainer">
+                <div class="companyHeader">
+                    <h1>Company Brand</h1>
+                </div>
+
+                <div class="mainInput">
+
+                    <div class="memberListContainer">
+                        <div class="companyHeader">
+                            <h1>Members</h1>
+                        </div>
+                        {% for member in members %}
+                            <div class="memberList" style="display:block">
+                                <div class="checkBtnContainer">
+                                    <button class="checkBtn"></button>
+                                </div>
+                                <h1>{{ member[0] }}, {{ member[1] }}, {{ member[2] }}</h1>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    
+                    <div class="memberInputContainer">
+
+                        <h1>Add Member</h1>
+
+                        <a href="/download"><button id="csvDownload">Download CSV</button></a>
+
+                        <form class="memberInput" method="POST" action="/add/member/list">
+                            <input class="input2" id="firstNameInput" autocomplete="off" autofocus type="text" name="first-name" placeholder="First name">
+
+                            <input class="input2" id="lastNameInput" autocomplete="off" type="text" name="last-name" placeholder="Last Name">
+
+                            <input class="input2" id="fourDigits" autocomplete="off" type="text" name="digits" placeholder="Last 4 digits">
+                            <p id="lastFourError"></p>
+
+                            <button class="add-button" id="addBtn" type="submit">Add</button>  
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="{{url_for('static', filename='css/script.js')}}"></script>
+
+{% endblock %}

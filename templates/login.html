@@ -1,0 +1,36 @@
+{% extends "temp.html" %}
+
+{% block title %}Create Account Name{% endblock %}
+
+{% block body %}
+
+<main>
+    <div class="sign-up-container">
+        <div class="sign-up-name-container">
+            <div class="login-header-container">
+                <div class="header">
+                    <h1>Employee Login</h1>
+                </div>
+            </div>
+            <div class="login-input-container">
+                <form class="login-input-box" action="/login/success" method="POST">
+                    <input id="emailInput" autocomplete="off" autofocus type="email" name="email" placeholder="Company Email">
+                    <p class="errors" id="emailError"></p>
+                    <input id="passwordInput" autocomplete="off" type="password" name="password" placeholder="Password">
+                    <p class="errors" id="passwordError"></p>
+                    <div class="next-button-container"><button class="login-button" id="loginBtn"  type="submit">Login</button></div>    
+                </form>
+                
+            </div>
+            <div class="option-choice-container">
+                <div class="option-choice">
+                    
+                    
+                    <a href="/create"><div class="option-button">Create Account</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="{{url_for('static', filename='css/login.js')}}"></script>
+{% endblock %}
